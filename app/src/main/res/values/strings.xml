@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">BakingAppTlee</string>
+    <string name="error_message">Recipe data not available</string>
+
+    <string name="RECIPE_LIST_KEY">recipesList</string>
+    <string name="SELECTED_RECIPE_KEY">selectedRecipe</string>
+    <string name="SELECTED_STEP_KEY">selectedStep</string>
+
+    <string name="ingredients">Ingredients: </string>
+    <string name="steps">Steps: </string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="servings">Servings: </string>
+
+    <string name="PLAY_WHEN_READY_KEY">playWhenReady</string>
+    <string name="CURRENT_WINDOW_KEY">currentWindow</string>
+    <string name="PLAYBACK_POSITION_KEY">playbackPosition</string>
+
+    <string name="TWO_PANE_KEY">twoPane</string>
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="RECIPE_NAME_PREFS">recipeName</string>
+    <string name="INGREDIENT_PREFS">ingredients</string>
+    <string name="RECIPE_PREFS">recipePrefs</string>
+
 </resources>
