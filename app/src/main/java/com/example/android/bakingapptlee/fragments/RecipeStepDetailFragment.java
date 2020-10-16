@@ -89,8 +89,6 @@ public class RecipeStepDetailFragment extends Fragment implements Player.EventLi
 
     private void releasePlayer() {
         if (exoPlayer != null) {
-            playWhenReady = exoPlayer.getPlayWhenReady();
-            playbackPosition = exoPlayer.getCurrentPosition();
             currentWindow = exoPlayer.getCurrentWindowIndex();
             exoPlayer.stop();
             exoPlayer.release();
@@ -122,6 +120,10 @@ public class RecipeStepDetailFragment extends Fragment implements Player.EventLi
         super.onPause();
         if(Util.SDK_INT < 24) {
             releasePlayer();
+        }
+        if(exoPlayer != null) {
+            playWhenReady = exoPlayer.getPlayWhenReady();
+            playbackPosition = exoPlayer.getCurrentPosition();
         }
     }
 

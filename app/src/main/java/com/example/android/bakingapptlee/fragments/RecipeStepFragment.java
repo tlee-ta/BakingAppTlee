@@ -36,26 +36,27 @@ public class RecipeStepFragment extends Fragment implements RecipeStepAdapter.Re
 
         recipeStepBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_recipe_step, container, false);
 
-        if (recipeData != null) {
+        if (savedInstanceState == null) {
+            if (recipeData != null) {
 
-            LinearLayoutManager stepLayoutManager = new LinearLayoutManager(getContext());
-            recipeStepBinding.rvRecipeStep.setLayoutManager(stepLayoutManager);
-            recipeStepBinding.rvRecipeStep.setHasFixedSize(true);
+                LinearLayoutManager stepLayoutManager = new LinearLayoutManager(getContext());
+                recipeStepBinding.rvRecipeStep.setLayoutManager(stepLayoutManager);
+                recipeStepBinding.rvRecipeStep.setHasFixedSize(true);
 
-            RecipeStepAdapter recipeStepAdapter = new RecipeStepAdapter(this, recipeData);
-            recipeStepBinding.rvRecipeStep.setAdapter(recipeStepAdapter);
-            recipeStepAdapter.setStepData(recipeData.getRecipeSteps());
+                RecipeStepAdapter recipeStepAdapter = new RecipeStepAdapter(this, recipeData);
+                recipeStepBinding.rvRecipeStep.setAdapter(recipeStepAdapter);
+                recipeStepAdapter.setStepData(recipeData.getRecipeSteps());
 
-            if (twoPane) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                RecipeStepDetailFragment stepDetailFragment = new RecipeStepDetailFragment();
-                stepDetailFragment.setStepData(recipeData.getRecipeSteps().get(0));
-                fragmentManager.beginTransaction()
-                        .add(R.id.fr_recipe_step_details, stepDetailFragment)
-                        .commit();
+                if (twoPane) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    RecipeStepDetailFragment stepDetailFragment = new RecipeStepDetailFragment();
+                    stepDetailFragment.setStepData(recipeData.getRecipeSteps().get(0));
+                    fragmentManager.beginTransaction()
+                            .add(R.id.fr_recipe_step_details, stepDetailFragment)
+                            .commit();
+                }
             }
         }
-
         return recipeStepBinding.getRoot();
     }
 
